@@ -45,6 +45,7 @@
     mask="url(#{type}_mask)"
   />
   <rect
+    class="level"
     x="0"
     y={(1 - level / 100) * 50}
     width="100%"
@@ -78,5 +79,8 @@
 
   .status-icon .effect-indicator {
     transition: r 3s;
+  }
+  .status-icon .level {
+    transition: y 0.7s;
   }
 </style>
