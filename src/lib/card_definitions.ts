@@ -1,4 +1,4 @@
-type ImageId = "steve" | "lon_ask" | "farmer" | "old"
+type ImageId = "steve" | "lon_ask" | "farmer" | "old" | "tech" | "business"
 
 interface Effect {
     prosperity?: number
@@ -171,7 +171,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     },
     flooding: {
         name: "Farmer from devastated area",
-        text: "Our harvest was ruined by the flood. You need to help us, or we'll starve!",
+        text: "Our harvest was ruined by the flood. You need to help us or we'll starve!",
         image_id: "farmer",
         action_description: {
             left_swipe: "Nah",
@@ -238,7 +238,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     taxes: {
         name: "Economists",
         text: "Our models predict a recession if you don't change the tax system.",
-        image_id: "old",
+        image_id: "business",
         action_description: {
             left_swipe: "Yeah nah, don't think so",
             right_swipe: "Ah yes, quite sensible"
@@ -258,8 +258,8 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     },
     crypto: {
         name: "Tech Bro",
-        text: "You definitely have to invest in this crypto coin, I just found. Think of all the NFTs you can buy!",
-        image_id: "old",
+        text: "You definitely have to invest in this crypto coin I just found. Think of all the NFTs you can buy!",
+        image_id: "tech",
         action_description: {
             left_swipe: "Byeeee",
             right_swipe: "I'm going all in!"
@@ -290,6 +290,28 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             },
             right_swipe: {
                 freedom: 10
+            }
+        },
+        permanent_effects: {
+            left_swipe: {},
+            right_swipe: {}
+        }
+    },
+    ceo: {
+        name: "CEO of that company",
+        text: "I discussed with my board and we think you should lower regulations.",
+        image_id: "business",
+        action_description: {
+            left_swipe: "No thanks",
+            right_swipe: "I'll get right to it"
+        },
+        effects: {
+            left_swipe: {
+                prosperity: -5
+            },
+            right_swipe: {
+                freedom: 5,
+                prosperity: 5
             }
         },
         permanent_effects: {
