@@ -1,8 +1,16 @@
 <script lang="ts">
   import {
     prosperityLevel,
+    prosperityChangeRate,
     prosperityEstimatedEffect,
+    technologyLevel,
+    technologyChangeRate,
+    technologyEstimatedEffect,
+    freedomLevel,
+    freedomChangeRate,
+    freedomEstimatedEffect,
     climateLevel,
+    climateChangeRate,
     climateEstimatedEffect,
   } from "./stores";
   import StatusIcon from "./StatusIcon.svelte";
@@ -12,21 +20,25 @@
   <StatusIcon
     type="prosperity"
     level={$prosperityLevel}
+    changeRate={$prosperityChangeRate}
     estimatedEffect={$prosperityEstimatedEffect}
   />
   <StatusIcon
     type="technology"
-    level={$climateLevel}
-    estimatedEffect={$climateEstimatedEffect}
+    level={$technologyLevel}
+    changeRate={$technologyChangeRate}
+    estimatedEffect={$technologyEstimatedEffect}
   />
   <StatusIcon
     type="freedom"
-    level={$climateLevel}
-    estimatedEffect={$climateEstimatedEffect}
+    level={$freedomLevel}
+    changeRate={$freedomChangeRate}
+    estimatedEffect={$freedomEstimatedEffect}
   />
   <StatusIcon
     type="climate"
     level={$climateLevel}
+    changeRate={$climateChangeRate}
     estimatedEffect={$climateEstimatedEffect}
   />
 </header>

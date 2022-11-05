@@ -3,13 +3,30 @@
   import { cardDefinitions } from "./card_definitions";
   import {
     prosperityLevel,
+    prosperityChangeRate,
     prosperityEstimatedEffect,
+    technologyLevel,
+    technologyChangeRate,
+    technologyEstimatedEffect,
+    freedomLevel,
+    freedomChangeRate,
+    freedomEstimatedEffect,
     climateLevel,
+    climateChangeRate,
     climateEstimatedEffect,
   } from "./stores";
 
   // game setup
   export let currentCard = "initial_card";
+
+  function handlePermanentEffects() {
+    prosperityLevel.update((level) => level + $prosperityChangeRate);
+    technologyLevel.update((level) => level + $technologyChangeRate);
+    freedomLevel.update((level) => level + $freedomChangeRate);
+    climateLevel.update((level) => level + $climateChangeRate);
+  }
+
+  setInterval(handlePermanentEffects, 1000);
 
   // helper functions
   function chooseRandomCard() {
@@ -32,13 +49,36 @@
     // process current card effects
     let effects =
       cardDefinitions[currentCard].effects[`${swipeDirection}_swipe`];
-    console.log("Apply", effects);
+    console.log("Apply effects", effects);
 
     if (effects.prosperity !== undefined) {
       prosperityLevel.update((level) => level + effects.prosperity);
     }
+    if (effects.technology !== undefined) {
+      technologyLevel.update((level) => level + effects.technology);
+    }
+    if (effects.freedom !== undefined) {
+      freedomLevel.update((level) => level + effects.freedom);
+    }
     if (effects.climate !== undefined) {
       climateLevel.update((level) => level + effects.climate);
+    }
+
+    let permEffects =
+      cardDefinitions[currentCard].permanent_effects[`${swipeDirection}_swipe`];
+    console.log("Update permanent effects", permEffects);
+
+    if (permEffects.prosperity !== undefined) {
+      prosperityChangeRate.update((level) => level + permEffects.prosperity);
+    }
+    if (permEffects.technology !== undefined) {
+      technologyChangeRate.update((level) => level + permEffects.technology);
+    }
+    if (permEffects.freedom !== undefined) {
+      freedomChangeRate.update((level) => level + permEffects.freedom);
+    }
+    if (permEffects.climate !== undefined) {
+      climateChangeRate.update((level) => level + permEffects.climate);
     }
 
     // choose next card
@@ -61,6 +101,16 @@
     } else {
       prosperityEstimatedEffect.set(0);
     }
+    if (effects.technology !== undefined) {
+      technologyEstimatedEffect.set(effects.technology);
+    } else {
+      technologyEstimatedEffect.set(0);
+    }
+    if (effects.freedom !== undefined) {
+      freedomEstimatedEffect.set(effects.freedom);
+    } else {
+      freedomEstimatedEffect.set(0);
+    }
     if (effects.climate !== undefined) {
       climateEstimatedEffect.set(effects.climate);
     } else {
@@ -70,6 +120,8 @@
 
   function clearEstimatedEffects() {
     prosperityEstimatedEffect.set(0);
+    technologyEstimatedEffect.set(0);
+    freedomEstimatedEffect.set(0);
     climateEstimatedEffect.set(0);
   }
 </script>
