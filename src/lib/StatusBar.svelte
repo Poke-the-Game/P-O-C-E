@@ -1,11 +1,24 @@
 <script lang="ts">
-  import { prosperityLevel, climateLevel } from "./stores";
+  import {
+    prosperityLevel,
+    prosperityEstimatedEffect,
+    climateLevel,
+    climateEstimatedEffect,
+  } from "./stores";
   import StatusIcon from "./StatusIcon.svelte";
 </script>
 
 <header class="statusbar">
-  <StatusIcon type="prosperity" level={$prosperityLevel} />
-  <StatusIcon type="climate" level={$climateLevel} />
+  <StatusIcon
+    type="prosperity"
+    level={$prosperityLevel}
+    estimatedEffect={$prosperityEstimatedEffect}
+  />
+  <StatusIcon
+    type="climate"
+    level={$climateLevel}
+    estimatedEffect={$climateEstimatedEffect}
+  />
 </header>
 
 <style>
