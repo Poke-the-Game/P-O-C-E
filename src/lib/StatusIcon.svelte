@@ -19,10 +19,14 @@
           y1="3.5"
           x2="0"
           y2="40"
-          stroke-width="7"
+          stroke-width="8"
           stroke-linecap="round"
           fill="none"
           stroke="white"
+        />
+        <path
+          d="M1,8 h10 m-10,5 h10 m-10,5 h10 m-10,5 h10 m-10,5 h10"
+          stroke="black"
         />
         <circle cx="0" cy="40" r="9" fill="white" stroke="none" />
       </g>
