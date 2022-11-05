@@ -10,6 +10,9 @@
   src: url("/fonts/OCRA.ttf") format('ttf');
 }
 
+html {
+  overflow: hidden;
+}
 body {
   font-family: "OCRA";
   height: 100vh;
@@ -17,4 +20,5 @@ body {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
+  overflow: hidden;
 }

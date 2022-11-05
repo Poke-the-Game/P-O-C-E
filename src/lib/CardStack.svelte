@@ -7,6 +7,8 @@
   const dispatch = createEventDispatcher();
 
   $: offset = 0;
+  $: dropped = false;
+  let dropTimeout;
 
   function getDirectionFromOffset(offset) {
     if (offset < -offsetThreshold) {
@@ -19,9 +21,18 @@
   }
 
   function dispatchSwipeEnd() {
+    if (dropTimeout) clearTimeout(dropTimeout);
     const direction = getDirectionFromOffset(offset);
-    dispatch("swipeEnd", { direction: direction });
     offset = 0;
+    if (direction) {
+      dropped = true;
+      dropTimeout = setTimeout(() => {
+        dispatch("swipeEnd", { direction: direction });
+        dropped = false;
+      }, 500);
+    } else {
+      dispatch("swipeEnd", { direction: null });
+    }
   }
 
   function dispatchSwipeMove(prevOffset) {
@@ -92,8 +103,10 @@
   <div
     class="card"
     class:moving={offset !== 0}
+    class:dropped
     style:filter="grayscale({Math.abs(offset) > offsetThreshold ? 50 : 0}%)"
-    style:transform="translateX({offset}px) rotate({offset / 10}deg)"
+    style:transform="translateX({offset}px) translateY({dropped ? 200 : 0}vh)
+    rotate({offset / 10}deg)"
   >
     Image: {image}
   </div>
@@ -115,5 +128,8 @@
   }
   .card.moving {
     transition: none;
+  }
+  .card.dropped {
+    transition: transform 1.2s ease-out;
   }
 </style>
