@@ -11,6 +11,7 @@
   viewBox="0 -20 50 90"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <title>{type}</title>
   <defs>
     <mask id="climate_mask">
       <g transform="translate(25,0)">
