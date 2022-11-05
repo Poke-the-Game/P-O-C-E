@@ -23,7 +23,9 @@
     return cardProposal;
   }
 
-  function swipe(event, swipeDirection) {
+  function handleSwipeEnd(event) {
+    const swipeDirection = event.detail.direction;
+    if (!swipeDirection) return;
     console.log(`Swipe ${swipeDirection}`);
     clearEstimatedEffects();
 
@@ -44,10 +46,15 @@
     console.log("New card:", currentCard, cardDefinitions[currentCard]);
   }
 
-  function hover(event, swipeDirection) {
+  function handleSwipeChange(event) {
+    const swipeDirection = event.detail.direction;
+    console.log("SwipeChange", swipeDirection);
+    if (!swipeDirection) {
+      clearEstimatedEffects();
+      return;
+    }
     let effects =
       cardDefinitions[currentCard].effects[`${swipeDirection}_swipe`];
-    console.log("Estimate", effects);
 
     if (effects.prosperity !== undefined) {
       prosperityEstimatedEffect.set(effects.prosperity);
@@ -71,26 +78,14 @@
   <div class="text-view">
     {cardDefinitions[currentCard].text}
   </div>
-  <CardStack image={cardDefinitions[currentCard].image_id} />
+  <CardStack
+    image={cardDefinitions[currentCard].image_id}
+    on:swipeChange={handleSwipeChange}
+    on:swipeEnd={handleSwipeEnd}
+  />
   <div class="name-view">
     {cardDefinitions[currentCard].name}
   </div>
-  <button
-    type="button"
-    on:click={(event) => swipe(event, "left")}
-    on:mouseenter={(event) => hover(event, "left")}
-    on:mouseleave={() => clearEstimatedEffects()}
-  >
-    Swipe left
-  </button>
-  <button
-    type="button"
-    on:click={(event) => swipe(event, "right")}
-    on:mouseenter={(event) => hover(event, "right")}
-    on:mouseleave={() => clearEstimatedEffects()}
-  >
-    Swipe right
-  </button>
 </main>
 
 <style>
@@ -98,5 +93,8 @@
     height: auto;
     background-color: #bda86a;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>
