@@ -19,6 +19,10 @@ interface CardDefinition {
         left_swipe: Effect;
         right_swipe: Effect;
     }
+    permanent_effects: {
+        left_swipe: Effect;
+        right_swipe: Effect;
+    }
 }
 
 export const cardDefinitions: Record<string, CardDefinition> = {
@@ -37,6 +41,16 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             "right_swipe": {
                 prosperity: -10
             }
+        },
+        permanent_effects: {
+            "left_swipe": {
+                "freedom": 3,
+                "climate": -3
+            },
+            "right_swipe": {
+                "prosperity": 3,
+                "technology": -3
+            }
         }
     },
     special_event: {
@@ -54,6 +68,9 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             right_swipe: {
                 climate: -10
             }
+        },
+        permanent_effects: {
+            "left_swipe": {}, "right_swipe": {}
         }
     },
     omg_event: {
@@ -71,6 +88,9 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             right_swipe: {
                 technology: -10
             }
+        },
+        permanent_effects: {
+            "left_swipe": {}, "right_swipe": {}
         }
     }
 }
