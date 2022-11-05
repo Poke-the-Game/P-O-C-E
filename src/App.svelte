@@ -2,7 +2,7 @@
   import StatusBar from "./lib/StatusBar.svelte";
   import MainView from "./lib/MainView.svelte";
 
-  type GameState = "start" | "ongoing" | "death";
+  type GameState = "start" | "ongoing" | "info" | "death";
   let state: GameState = "start";
   $: deathMessage = "";
   $: finalYear = 0;
@@ -35,7 +35,7 @@
         "Computer systems more advanced than any human brain have taken over and started saving earth by following the only possible solution, removing all humans from its surface.";
     } else if (finalResults.freedom < 0) {
       deathMessage =
-        "Autocratic governments and malevolent dictators have taken over. Censorship is tightly controlling all media. Most humans only live to serve and comply. Life as we know it is over";
+        "Autocratic governments and malevolent dictators have taken over. Censorship is tightly controlling all media. Most humans only live to serve and comply. Life as we know it is over.";
     } else if (finalResults.freedom > 100) {
       deathMessage =
         "Life is limitless and no one holds back. Anarchy is reigning and fake news control the narrative. Humanity has dismantled itself.";
@@ -50,9 +50,27 @@
 </script>
 
 {#if state === "start"}
-  <h1>POCE: Prosperity Over Climate Extinction</h1>
+  <div class="menu-title">POCE: Prosperity Over Climate Extinction</div>
 
-  <p>
+  <div class="menu-text">
+    A game about finding compromises for difficult decisions to avoid
+    extinction.
+
+    <button class="menu-button" type="button" on:click={startGame}>
+      Start game
+    </button>
+    <button
+      class="menu-button"
+      type="button"
+      on:click={() => {
+        state = "info";
+      }}
+    >
+      More information
+    </button>
+  </div>
+{:else if state === "info"}
+  <div class="menu-text">
     Human society is a complex system of interactions within itself and the
     environment it exists in. Navigating it along the abyss of extinction is a
     difficult task which requires making sensible compromises. In this simulated
@@ -62,26 +80,62 @@
     they reach 0% or 100% humanity is doomed and we are all lost. This is no
     easy task as the seemingly best choice can have dire consequences. Good luck
     friend, you will need it.
-  </p>
 
-  <button type="button" on:click={startGame}>Start game</button>
+    <button
+      class="menu-button"
+      type="button"
+      on:click={() => {
+        state = "start";
+      }}
+    >
+      Back
+    </button>
+  </div>
 {:else if state === "ongoing"}
   <StatusBar />
   <MainView on:gameEnd={endGame} />
 {:else if state === "death"}
-  <h1>The world has collapsed</h1>
+  <div class="menu-title">The world has collapsed</div>
 
-  <p>{deathMessage}</p>
+  <div class="menu-text">
+    {deathMessage}
 
-  <h3>You reached the year {finalYear}</h3>
+    <h3>You reached the year {finalYear}</h3>
 
-  <p>
-    <small>
-      Got an idea for additional cards? We are happy to merge them on <a
-        href="https://github.com/Poke-the-Game/P-O-C-E"
-      >
-        GitHub
-      </a>
-    </small>
-  </p>
+    <p>
+      <small>
+        Got an idea for additional cards? We are happy to merge them on <a
+          href="https://github.com/Poke-the-Game/P-O-C-E"
+        >
+          GitHub
+        </a>!
+      </small>
+    </p>
+  </div>
 {/if}
+
+<style>
+  .menu-title {
+    background-color: #241404;
+    color: #f7f3c1;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 125%;
+  }
+
+  .menu-text {
+    background-color: #241404;
+    color: #f7f3c1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .menu-button {
+    width: 50%;
+  }
+</style>
