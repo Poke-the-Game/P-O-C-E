@@ -1,4 +1,4 @@
-type ImageId = "image"
+type ImageId = "image" | "lon_ask"
 
 interface Effect {
     prosperity?: number
@@ -77,6 +77,29 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             },
             right_swipe: {
                 climate: -10
+            }
+        },
+        permanent_effects: {
+            "left_swipe": {}, "right_swipe": {}
+        }
+    },
+    lon_ask_1: {
+        name: "Lon Ask",
+        text: "Lets accelerate free speech with this new feathered app.",
+        image_id: "lon_ask",
+        action_description: {
+            left_swipe: "No, we'll continue to use the fax machine!",
+            right_swipe: "Sounds great!"
+        },
+        effects: {
+            left_swipe: {
+                technology: -10,
+                freedom: -5
+            },
+            right_swipe: {
+                technology: 10,
+                freedom: -10,
+                climate: -5
             }
         },
         permanent_effects: {

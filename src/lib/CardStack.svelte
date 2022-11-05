@@ -104,12 +104,11 @@
     class="card"
     class:moving={offset !== 0}
     class:dropped
-    style:filter="grayscale({Math.abs(offset) > offsetThreshold ? 50 : 0}%)"
+    style:filter="grayscale({Math.abs(offset) > offsetThreshold ? 100 : 0}%)"
     style:transform="translateX({offset}px) translateY({dropped ? 200 : 0}vh)
     rotate({offset / 10}deg)"
-  >
-    Image: {image}
-  </div>
+    style:background="url(/card/{image}.svg)"
+  />
 </div>
 
 <style>
