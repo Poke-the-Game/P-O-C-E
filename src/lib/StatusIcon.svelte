@@ -35,6 +35,59 @@
         /></g
       >
     </mask>
+    <mask id="technology_mask">
+      <path
+        d="M15,2
+    a 13,13,0,0,0,-12,19
+    c2,4, 7,5, 7,14
+    H15 z
+    "
+        stroke="none"
+        fill="white"
+        id="bulb"
+      />
+      <use href="#bulb" x="-29.9" fill="red" transform="scale(-1,1)" />
+      <path
+        d="M 10.5,37 h9"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 10.5,40 h9"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 10.5,43 h9"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M 13,46 h4"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </mask>
+    <mask id="freedom_mask">
+      <path d="M7,14 l4,-8 l2,4 l4,-8 l6,12 " fill="white" />
+      <path
+        d="M6,17.5 h18"
+        stroke="white"
+        stroke-width="5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M8,23.5 h14"
+        stroke="white"
+        stroke-width="5"
+        stroke-linecap="round"
+      />
+      <path d="M10, 27 l2,20 h6 l2,-20" fill="white" />
+    </mask>
   </defs>
   <rect
     x="0"
