@@ -1,11 +1,10 @@
-<script>
-  import StatusClimate from "./StatusClimate.svelte";
-  import StatusProsperity from "./StatusProsperity.svelte";
+<script lang="ts">
+  import StatusIcon from "./StatusIcon.svelte";
 </script>
 
 <header class="statusbar">
-  <StatusProsperity level={50} />
-  <StatusClimate level={50} />
+  <StatusIcon type="prosperity" level={50} />
+  <StatusIcon type="climate" level={50} />
 </header>
 
 <style>

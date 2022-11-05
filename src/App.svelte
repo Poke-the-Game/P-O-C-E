@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import StatusBar from "./lib/StatusBar.svelte";
 </script>
 
