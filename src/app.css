@@ -9,15 +9,14 @@
   src: url("/fonts/OCRA.ttf") format('truetype');
 }
 
-html {
+html,  body {
+  height: 100%;
   overflow: hidden;
 }
 body {
   font-family: "OCRA";
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  overflow: hidden;
 }
