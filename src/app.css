@@ -5,9 +5,7 @@
 
 @font-face {
   font-family: 'OCRA';
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/OCRA.ttf") format('ttf');
+  src: url("/fonts/OCRA.ttf") format('truetype');
 }
 
 html {
