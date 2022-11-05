@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import CardStack from "./CardStack.svelte";
   import { cardDefinitions } from "./card_definitions";
   import {
@@ -17,6 +18,7 @@
   } from "./stores";
 
   // game setup
+  const dispatch = createEventDispatcher();
   export let currentCard = "initial_card";
 
   function handlePermanentEffects() {
@@ -24,11 +26,36 @@
     technologyLevel.update((level) => level + $technologyChangeRate);
     freedomLevel.update((level) => level + $freedomChangeRate);
     climateLevel.update((level) => level + $climateChangeRate);
+
+    checkDeathConditions();
   }
 
-  setInterval(handlePermanentEffects, 1000);
+  let permEffectInterval = setInterval(handlePermanentEffects, 1000);
 
   // helper functions
+  function checkDeathConditions() {
+    let isDead =
+      $prosperityLevel < 0 ||
+      $prosperityLevel > 100 ||
+      $technologyLevel < 0 ||
+      $technologyLevel > 100 ||
+      $freedomLevel < 0 ||
+      $freedomLevel > 100 ||
+      $climateLevel < 0 ||
+      $climateLevel > 100;
+
+    if (isDead) {
+      console.log("Game over");
+      clearInterval(permEffectInterval);
+      dispatch("gameEnd", {
+        prosperity: $prosperityLevel,
+        technology: $technologyLevel,
+        freedom: $freedomLevel,
+        climate: $climateLevel,
+      });
+    }
+  }
+
   function chooseRandomCard() {
     var keys = Object.keys(cardDefinitions);
 
@@ -80,6 +107,9 @@
     if (permEffects.climate !== undefined) {
       climateChangeRate.update((level) => level + permEffects.climate);
     }
+
+    // check for death
+    checkDeathConditions();
 
     // choose next card
     currentCard = chooseRandomCard();
