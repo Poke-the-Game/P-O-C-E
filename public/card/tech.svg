@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg version="1.2" viewBox="-150 0 300 300" id="svg16477" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+    <defs id="defs16462">
+        <mask id="half">
+            <rect x="-150" width="300" height="300" fill="#ccc" id="rect16457" />
+            <rect width="300" height="300" fill="#fff" id="rect16459" />
+        </mask>
+    </defs>
+    <rect x="-50%" width="100%" height="100%" fill="#7e8654" id="rect16464" />
+    <g mask="url(#half)" id="g16475">
+        <path d="M-150,300 l120,-50 h60 l120,50" fill="#662626" />
+        <g id="face">
+            <path d="m0 70 85,5 5,60 0,40 -10,70 -60,40 -20,2" fill="#f8cba1" id="path16466" />
+            <path d="m32 165v20" stroke="#000" stroke-width="10" id="path16468" />
+            <path d="M-1 160 l10,2
+                l5,-2 l16,-1 l18,1 l5,2
+                l2,10 l-6,20
+                l-25,2 l-10,-4
+                l-4,-27
+                M52,165 h40" stroke="#24247c" fill="none" stroke-width="5" id="path16468" />
+            <path d="M0, 230 l20,5 l5,20 h10 l-3-27 l-34-10" fill="#432a11" />
+            <path d="M0, 290 l20,-5 l60,-40 l6,-30 h-15 l-5,20 l-25,15 l-41,3" fill="#432a11" />
+        </g>
+        <use transform="scale(-1,1)" xlink:href="#face" id="use16471" />
+        <path
+            d="M -105.67,65.117 l 29.995499,-16.728008 51.576,-12.967294 77.186506,1.170097 18.799995,25.393 35.196,-16.118995 9.0552,37.638 L 90.87371,165.67579 64.921212,106 H -68.976302 l -12.211523,41.12196 -9.15344,17.66422 -4.773445,-51.32069"
+            fill="#432a11" />
+    </g>
+</svg>
