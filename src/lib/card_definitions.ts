@@ -47,10 +47,10 @@ export const cardDefinitions: Record<string, CardDefinition> = {
         },
         effects: {
             left_swipe: {
-                prosperity: 30
+                climate: 10
             },
             right_swipe: {
-                prosperity: -30
+                climate: -10
             }
         }
     }

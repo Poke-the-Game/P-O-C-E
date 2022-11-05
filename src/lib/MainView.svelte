@@ -1,5 +1,6 @@
 <script lang="ts">
   import { cardDefinitions } from "./card_definitions";
+  import { prosperityLevel, climateLevel } from "./stores";
 
   // game setup
   export let currentCard = "initial_card";
@@ -21,8 +22,15 @@
 
     // process current card effects
     let effects =
-      cardDefinitions[currentCard]["effects"][`${swipeDirection}_swipe`];
+      cardDefinitions[currentCard].effects[`${swipeDirection}_swipe`];
     console.log(effects);
+
+    if (effects.prosperity !== undefined) {
+      prosperityLevel.update((level) => level + effects.prosperity);
+    }
+    if (effects.climate !== undefined) {
+      climateLevel.update((level) => level + effects.climate);
+    }
 
     // choose next card
     currentCard = chooseRandomCard();
