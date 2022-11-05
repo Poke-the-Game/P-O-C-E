@@ -4,6 +4,10 @@
   import {
     prosperityLevel,
     prosperityEstimatedEffect,
+    technologyLevel,
+    technologyEstimatedEffect,
+    freedomLevel,
+    freedomEstimatedEffect,
     climateLevel,
     climateEstimatedEffect,
   } from "./stores";
@@ -37,6 +41,12 @@
     if (effects.prosperity !== undefined) {
       prosperityLevel.update((level) => level + effects.prosperity);
     }
+    if (effects.technology !== undefined) {
+      technologyLevel.update((level) => level + effects.technology);
+    }
+    if (effects.freedom !== undefined) {
+      freedomLevel.update((level) => level + effects.freedom);
+    }
     if (effects.climate !== undefined) {
       climateLevel.update((level) => level + effects.climate);
     }
@@ -61,6 +71,16 @@
     } else {
       prosperityEstimatedEffect.set(0);
     }
+    if (effects.technology !== undefined) {
+      technologyEstimatedEffect.set(effects.technology);
+    } else {
+      technologyEstimatedEffect.set(0);
+    }
+    if (effects.freedom !== undefined) {
+      freedomEstimatedEffect.set(effects.freedom);
+    } else {
+      freedomEstimatedEffect.set(0);
+    }
     if (effects.climate !== undefined) {
       climateEstimatedEffect.set(effects.climate);
     } else {
@@ -70,6 +90,8 @@
 
   function clearEstimatedEffects() {
     prosperityEstimatedEffect.set(0);
+    technologyEstimatedEffect.set(0);
+    freedomEstimatedEffect.set(0);
     climateEstimatedEffect.set(0);
   }
 </script>

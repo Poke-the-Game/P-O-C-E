@@ -1,5 +1,5 @@
 <script lang="ts">
-  type StatusType = "climate" | "prosperity";
+  type StatusType = "prosperity" | "technology" | "freedom" | "climate";
   export let type: StatusType;
   export let level = 0;
   export let changeRate = 0;

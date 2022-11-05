@@ -2,6 +2,10 @@
   import {
     prosperityLevel,
     prosperityEstimatedEffect,
+    technologyLevel,
+    technologyEstimatedEffect,
+    freedomLevel,
+    freedomEstimatedEffect,
     climateLevel,
     climateEstimatedEffect,
   } from "./stores";
@@ -13,6 +17,16 @@
     type="prosperity"
     level={$prosperityLevel}
     estimatedEffect={$prosperityEstimatedEffect}
+  />
+  <StatusIcon
+    type="technology"
+    level={$technologyLevel}
+    estimatedEffect={$technologyEstimatedEffect}
+  />
+  <StatusIcon
+    type="freedom"
+    level={$freedomLevel}
+    estimatedEffect={$freedomEstimatedEffect}
   />
   <StatusIcon
     type="climate"
