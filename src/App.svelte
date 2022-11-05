@@ -107,8 +107,8 @@
         Got an idea for additional cards? We are happy to merge them on <a
           href="https://github.com/Poke-the-Game/P-O-C-E"
         >
-          GitHub
-        </a>!
+          GitHub</a
+        >!
       </small>
     </p>
   </div>

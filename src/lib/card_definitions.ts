@@ -48,7 +48,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
         text: "The leaders of major media companies have invited you to a dinner party to discuss their plans of merging.",
         image_id: "steve",
         action_description: {
-            left_swipe: "I have to prepare...",
+            left_swipe: "I have to be cautious...",
             right_swipe: "Yum, food!"
         },
         effects: {
