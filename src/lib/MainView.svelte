@@ -39,12 +39,12 @@
   <div class="name-view">
     {cardDefinitions[currentCard].name}
   </div>
-  <button type="button" on:click={(event) => swipe(event, "left")}
-    >Swipe left</button
-  >
-  <button type="button" on:click={(event) => swipe(event, "right")}
-    >Swipe right</button
-  >
+  <button type="button" on:click={(event) => swipe(event, "left")}>
+    Swipe left
+  </button>
+  <button type="button" on:click={(event) => swipe(event, "right")}>
+    Swipe right
+  </button>
 </main>
 
 <style>
