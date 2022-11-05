@@ -192,6 +192,11 @@
     align-items: center;
   }
 
+  .text-view,
+  .name-view {
+    flex-grow: 1;
+  }
+
   footer {
     background-color: #241404;
     color: #f7f3c1;
