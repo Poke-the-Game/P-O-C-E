@@ -1,0 +1,14 @@
+.statusbar {
+    --status-fg: #F7F3C1;
+    --status-bg: #8B7A50;
+    background-color: #241404;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.status-icon {
+    height: 50px;
+}
