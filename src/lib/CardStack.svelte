@@ -8,29 +8,27 @@
 
   $: offset = 0;
 
-  function dispatchSwipeEnd() {
+  function getDirectionFromOffset(offset) {
     if (offset < -offsetThreshold) {
-      dispatch("swipeEnd", { direction: "left" });
+      return "left";
     } else if (offset > offsetThreshold) {
-      dispatch("swipeEnd", { direction: "right" });
+      return "right";
     } else {
-      dispatch("swipeEnd", { direction: null });
+      return null;
     }
+  }
+
+  function dispatchSwipeEnd() {
+    const direction = getDirectionFromOffset(offset);
+    dispatch("swipeEnd", { direction: direction });
     offset = 0;
   }
 
   function dispatchSwipeMove(prevOffset) {
-    if (offset < -offsetThreshold && prevOffset >= -offsetThreshold) {
-      dispatch("swipeChange", { direction: "left" });
-    }
-    if (offset > offsetThreshold && prevOffset <= offsetThreshold) {
-      dispatch("swipeChange", { direction: "right" });
-    }
-    if (
-      Math.abs(offset) <= offsetThreshold &&
-      Math.abs(prevOffset) > offsetThreshold
-    ) {
-      dispatch("swipeChange", { direction: null });
+    const prevDirection = getDirectionFromOffset(prevOffset);
+    const direction = getDirectionFromOffset(offset);
+    if (prevDirection !== direction) {
+      dispatch("swipeChange", { direction: direction });
     }
   }
 
