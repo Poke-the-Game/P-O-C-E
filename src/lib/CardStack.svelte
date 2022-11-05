@@ -116,7 +116,7 @@
     width: 300px;
     height: 300px;
     border-radius: 2%;
-    background-color: #f0f;
+    background: url("/card/back.svg");
   }
   .card {
     border-radius: inherit;
