@@ -46,7 +46,7 @@
   />
   <rect
     x="0"
-    y="{100 - level}%"
+    y={(1 - level / 100) * 50}
     width="100%"
     height="100%"
     fill="var(--status-fg)"
