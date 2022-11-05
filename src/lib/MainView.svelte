@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CardStack from "./CardStack.svelte";
   import { cardDefinitions } from "./card_definitions";
   import { prosperityLevel, climateLevel } from "./stores";
 
@@ -41,9 +42,7 @@
   <div class="text-view">
     {cardDefinitions[currentCard].text}
   </div>
-  <div class="card-view">
-    {cardDefinitions[currentCard].image_id}
-  </div>
+  <CardStack image={cardDefinitions[currentCard].image_id} />
   <div class="name-view">
     {cardDefinitions[currentCard].name}
   </div>
