@@ -1,5 +1,5 @@
-<script>
-  import cardDefinitions from "./card_definitions.json";
+<script lang="ts">
+  import { cardDefinitions } from "./card_definitions";
 
   // game setup
   export let currentCard = "initial_card";
