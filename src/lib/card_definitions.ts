@@ -26,67 +26,57 @@ interface CardDefinition {
 }
 
 export const cardDefinitions: Record<string, CardDefinition> = {
-    initial_card: {
-        name: "initial_card",
-        text: "text",
+    inauguration: {
+        name: "Secretary-General of the United Nations",
+        text: "The world is at a turning point, after an elaborate selection process, we have chosen you as our most capable advisor. Lead the way!",
         image_id: "image",
         action_description: {
-            left_swipe: "left",
-            right_swipe: "right"
+            left_swipe: "Oh no...",
+            right_swipe: "Right on!"
         },
         effects: {
-            "left_swipe": {
-                prosperity: 10
-            },
-            "right_swipe": {
-                prosperity: -10
-            }
+            "left_swipe": {},
+            "right_swipe": {}
         },
         permanent_effects: {
-            "left_swipe": {
-                "freedom": 3,
-                "climate": -3
-            },
-            "right_swipe": {
-                "prosperity": 3,
-                "technology": -3
-            }
+            "left_swipe": {},
+            "right_swipe": {}
         }
     },
-    special_event: {
-        name: "special_event",
-        text: "text",
+    press_day: {
+        name: "Press agent",
+        text: "The leaders of major media companies have invited you to a dinner party to discuss their plans of merging.",
         image_id: "image",
         action_description: {
-            left_swipe: "left",
-            right_swipe: "right"
-        },
-        effects: {
-            left_swipe: {
-                climate: 10
-            },
-            right_swipe: {
-                climate: -10
-            }
-        },
-        permanent_effects: {
-            "left_swipe": {}, "right_swipe": {}
-        }
-    },
-    omg_event: {
-        name: "omg_event",
-        text: "text",
-        image_id: "image",
-        action_description: {
-            left_swipe: "left",
-            right_swipe: "right"
+            left_swipe: "I have to prepare...",
+            right_swipe: "Yum, food!"
         },
         effects: {
             left_swipe: {
                 freedom: 10
             },
             right_swipe: {
-                technology: -10
+                freedom: -10
+            }
+        },
+        permanent_effects: {
+            "left_swipe": {}, "right_swipe": {}
+        }
+    },
+    coal: {
+        name: "A coal emissary",
+        text: "We are lacking energy resources to get through the winter. Coal-powered plants are our only hope.",
+        image_id: "image",
+        action_description: {
+            left_swipe: "No, we'll find another way!",
+            right_swipe: "Sounds reasonable"
+        },
+        effects: {
+            left_swipe: {
+                prosperity: -10
+            },
+            right_swipe: {
+                climate: -10
             }
         },
         permanent_effects: {

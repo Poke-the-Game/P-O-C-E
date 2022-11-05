@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import CardStack from "./CardStack.svelte";
   import { cardDefinitions } from "./card_definitions";
   import {
@@ -17,23 +18,55 @@
   } from "./stores";
 
   // game setup
-  export let currentCard = "initial_card";
+  const dispatch = createEventDispatcher();
+  export let currentCard = "inauguration";
+  let cardBlacklist = ["inauguration"];
+  $: currentYear = 2000;
 
   function handlePermanentEffects() {
     prosperityLevel.update((level) => level + $prosperityChangeRate);
     technologyLevel.update((level) => level + $technologyChangeRate);
     freedomLevel.update((level) => level + $freedomChangeRate);
     climateLevel.update((level) => level + $climateChangeRate);
+
+    checkDeathConditions();
   }
 
-  setInterval(handlePermanentEffects, 1000);
+  let permEffectInterval = setInterval(handlePermanentEffects, 1000);
 
   // helper functions
+  function checkDeathConditions() {
+    let isDead =
+      $prosperityLevel < 0 ||
+      $prosperityLevel > 100 ||
+      $technologyLevel < 0 ||
+      $technologyLevel > 100 ||
+      $freedomLevel < 0 ||
+      $freedomLevel > 100 ||
+      $climateLevel < 0 ||
+      $climateLevel > 100;
+
+    if (isDead) {
+      console.log("Game over");
+      clearInterval(permEffectInterval);
+      dispatch("gameEnd", {
+        prosperity: $prosperityLevel,
+        technology: $technologyLevel,
+        freedom: $freedomLevel,
+        climate: $climateLevel,
+        finalYear: currentYear,
+      });
+    }
+  }
+
   function chooseRandomCard() {
     var keys = Object.keys(cardDefinitions);
 
     let cardProposal = keys[Math.floor(keys.length * Math.random())];
-    while (cardProposal === currentCard) {
+    while (
+      cardProposal === currentCard ||
+      cardBlacklist.includes(cardProposal)
+    ) {
       cardProposal = keys[Math.floor(keys.length * Math.random())];
     }
 
@@ -80,6 +113,12 @@
     if (permEffects.climate !== undefined) {
       climateChangeRate.update((level) => level + permEffects.climate);
     }
+
+    // check for death
+    checkDeathConditions();
+
+    // advance year
+    currentYear++;
 
     // choose next card
     currentCard = chooseRandomCard();
@@ -139,6 +178,7 @@
     {cardDefinitions[currentCard].name}
   </div>
 </main>
+<footer>Year: {currentYear} - Leader of the World</footer>
 
 <style>
   main {
@@ -148,5 +188,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  footer {
+    background-color: #241404;
+    color: #f7f3c1;
+    padding: 20px 10px;
   }
 </style>
