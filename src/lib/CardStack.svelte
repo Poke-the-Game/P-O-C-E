@@ -1,8 +1,10 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  const offsetThreshold = 100;
+  const offsetThreshold = 50;
   export let image: string;
+  export let left_action: string;
+  export let right_action: string;
 
   const dispatch = createEventDispatcher();
 
@@ -108,7 +110,23 @@
     style:transform="translateX({offset}px) translateY({dropped ? 200 : 0}vh)
     rotate({offset / 10}deg)"
     style:background="url(/card/{image}.svg)"
-  />
+  >
+    {#if getDirectionFromOffset(offset)}
+      <div
+        class="action"
+        class:left={getDirectionFromOffset(offset) === "left"}
+        class:right={getDirectionFromOffset(offset) === "right"}
+        style:transform="rotate({-offset / 10}deg)"
+      >
+        {#if getDirectionFromOffset(offset) === "left"}
+          {left_action}
+        {/if}
+        {#if getDirectionFromOffset(offset) === "right"}
+          {right_action}
+        {/if}
+      </div>
+    {/if}
+  </div>
 </div>
 
 <style>
@@ -124,11 +142,32 @@
     height: 100%;
     background-color: #0f0;
     transition: transform 0.4s;
+    overflow: hidden;
   }
   .card.moving {
     transition: none;
   }
   .card.dropped {
     transition: transform 1.2s ease-out;
+  }
+  .card .action {
+    width: calc(100% + 80px);
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    box-sizing: border-box;
+    padding-top: 80px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+    margin: -40px;
+  }
+  .card .action.left {
+    text-align: right;
+    padding-left: 90px;
+  }
+  .card .action.right {
+    text-align: left;
+    padding-right: 90px;
   }
 </style>

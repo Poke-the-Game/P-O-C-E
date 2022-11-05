@@ -171,6 +171,8 @@
   </div>
   <CardStack
     image={cardDefinitions[currentCard].image_id}
+    left_action={cardDefinitions[currentCard].action_description.left_swipe}
+    right_action={cardDefinitions[currentCard].action_description.right_swipe}
     on:swipeChange={handleSwipeChange}
     on:swipeEnd={handleSwipeEnd}
   />
