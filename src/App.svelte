@@ -48,6 +48,19 @@
 
 {#if state === "start"}
   <h1>POCE: Prosperity Over Climate Extinction</h1>
+
+  <p>
+    Human society is a complex system of interactions within itself and the
+    environment it exists in. Navigating it along the abyss of extinction is a
+    difficult task which requires making sensible compromises. In this simulated
+    universe, it is your task to guide humans through the dangerous times ahead.
+    Make sure to balance the four factors of enlightment (prosperity,
+    technology, freedom, and climate) and keep them at 50%. Pay attention! Once
+    they reach 0% or 100% humanity is doomed and we are all lost. This is no
+    easy task as the seemingly best choice can have dire consequences. Good luck
+    friend, you will need it.
+  </p>
+
   <button type="button" on:click={startGame}>Start game</button>
 {:else if state === "ongoing"}
   <StatusBar />
