@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg version="1.2" viewBox="-150 0 300 300" id="svg16477" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+    <defs id="defs16462">
+        <mask id="half">
+            <rect x="-150" width="300" height="300" fill="#ccc" id="rect16457" />
+            <rect width="300" height="300" fill="#fff" id="rect16459" />
+        </mask>
+    </defs>
+    <rect x="-50%" width="100%" height="100%" fill="#33361b" id="rect16464" />
+    <g mask="url(#half)" id="g16475">
+        <path d="M-150,300 l120,-50 h60 l120,50" fill="#331e1b" />
+        <g id="face">
+            <path d="m0 80 85,5 5,60 0,40 -10,60 -60,30 -20,2" fill="#f8cba1" id="path16466" />
+            <path d="m30 160v30" stroke="#000" stroke-width="10" id="path16468" />
+            <path d="M0, 64 l85,4 l7,40 l-92,-3" fill="#b19b30" />
+            <path d="M0, 104 l125,4 l7,10 l-132,-2" fill="#c3ac36" />
+        </g>
+        <use transform="scale(-1,1)" xlink:href="#face" id="use16471" />
+    </g>
+</svg>
