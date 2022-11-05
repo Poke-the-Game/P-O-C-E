@@ -20,6 +20,7 @@
   // game setup
   const dispatch = createEventDispatcher();
   export let currentCard = "inauguration";
+  let cardBlacklist = ["inauguration"];
   $: currentYear = 2000;
 
   function handlePermanentEffects() {
@@ -62,7 +63,10 @@
     var keys = Object.keys(cardDefinitions);
 
     let cardProposal = keys[Math.floor(keys.length * Math.random())];
-    while (cardProposal === currentCard) {
+    while (
+      cardProposal === currentCard ||
+      cardBlacklist.includes(cardProposal)
+    ) {
       cardProposal = keys[Math.floor(keys.length * Math.random())];
     }
 
