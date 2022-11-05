@@ -1,4 +1,4 @@
-type ImageId = "image" | "lon_ask"
+type ImageId = "steve" | "lon_ask"
 
 interface Effect {
     prosperity?: number
@@ -29,7 +29,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     inauguration: {
         name: "Secretary-General of the United Nations",
         text: "The world is at a turning point, after an elaborate selection process, we have chosen you as our most capable advisor. Lead the way!",
-        image_id: "image",
+        image_id: "steve",
         action_description: {
             left_swipe: "Oh no...",
             right_swipe: "Right on!"
@@ -46,7 +46,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     press_day: {
         name: "Press agent",
         text: "The leaders of major media companies have invited you to a dinner party to discuss their plans of merging.",
-        image_id: "image",
+        image_id: "steve",
         action_description: {
             left_swipe: "I have to prepare...",
             right_swipe: "Yum, food!"
@@ -66,7 +66,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     coal: {
         name: "A coal emissary",
         text: "We are lacking energy resources to get through the winter. Coal-powered plants are our only hope.",
-        image_id: "image",
+        image_id: "steve",
         action_description: {
             left_swipe: "No, we'll find another way!",
             right_swipe: "Sounds reasonable"
