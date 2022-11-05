@@ -22,6 +22,10 @@
     }
   }
 
+  function limit(val, min, max) {
+    return Math.max(Math.min(val, max), min);
+  }
+
   function dispatchSwipeEnd() {
     if (dropTimeout) clearTimeout(dropTimeout);
     const direction = getDirectionFromOffset(offset);
@@ -65,7 +69,7 @@
       y: event.touches[0].pageY,
     };
     const prevOffset = offset;
-    offset = currentPosition.x - startPosition.x;
+    offset = limit(currentPosition.x - startPosition.x, -150, 150);
     dispatchSwipeMove(prevOffset);
   }
 
@@ -83,7 +87,7 @@
     if (!startPosition) return;
     event.preventDefault();
     const prevOffset = offset;
-    offset = event.clientX - startPosition.x;
+    offset = limit(event.clientX - startPosition.x, -150, 150);
     dispatchSwipeMove(prevOffset);
   }
   function handleMouseUp(event) {
@@ -151,23 +155,24 @@
     transition: transform 1.2s ease-out;
   }
   .card .action {
-    width: calc(100% + 80px);
+    width: calc(100% + 200vw);
     height: auto;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     box-sizing: border-box;
-    padding-top: 80px;
-    padding-left: 60px;
-    padding-right: 60px;
+    transform-origin: bottom center;
+    padding-top: calc(100vh + 40px);
+    padding-left: calc(100vw + 20px);
+    padding-right: calc(100vw + 20px);
     padding-bottom: 40px;
-    margin: -40px;
+    margin: -100vh -100vw;
   }
   .card .action.left {
     text-align: right;
-    padding-left: 90px;
+    padding-left: calc(100vw + 50px);
   }
   .card .action.right {
     text-align: left;
-    padding-right: 90px;
+    padding-right: calc(100vw + 50px);
   }
 </style>
