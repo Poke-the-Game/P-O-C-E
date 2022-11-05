@@ -15,6 +15,16 @@
     estimatedEffect={$prosperityEstimatedEffect}
   />
   <StatusIcon
+    type="technology"
+    level={$climateLevel}
+    estimatedEffect={$climateEstimatedEffect}
+  />
+  <StatusIcon
+    type="freedom"
+    level={$climateLevel}
+    estimatedEffect={$climateEstimatedEffect}
+  />
+  <StatusIcon
     type="climate"
     level={$climateLevel}
     estimatedEffect={$climateEstimatedEffect}
