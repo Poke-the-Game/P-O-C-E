@@ -19,7 +19,7 @@
 
   // game setup
   const dispatch = createEventDispatcher();
-  export let currentCard = "initial_card";
+  export let currentCard = "inauguration";
   $: currentYear = 2000;
 
   function handlePermanentEffects() {

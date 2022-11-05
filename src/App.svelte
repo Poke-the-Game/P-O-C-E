@@ -74,4 +74,14 @@
   <p>{deathMessage}</p>
 
   <h3>You reached the year {finalYear}</h3>
+
+  <p>
+    <small>
+      Got an idea for additional cards? We are happy to merge them on <a
+        href="https://github.com/Poke-the-Game/P-O-C-E"
+      >
+        GitHub
+      </a>
+    </small>
+  </p>
 {/if}
