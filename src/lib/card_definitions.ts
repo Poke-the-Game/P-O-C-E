@@ -85,7 +85,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     },
     lon_ask_1: {
         name: "Lon Ask",
-        text: "Lets accelerate free speech with this new feathered app.",
+        text: "Let's accelerate free speech with this new feathered app.",
         image_id: "lon_ask",
         action_description: {
             left_swipe: "No, we'll continue to use the fax machine!",
