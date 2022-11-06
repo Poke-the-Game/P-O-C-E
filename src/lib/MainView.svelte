@@ -190,11 +190,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
-  .text-view,
-  .name-view {
+  .text-view {
+    margin-top: 10px;
     flex-grow: 1;
+  }
+
+  .name-view {
+    margin-top: 20px;
+    margin-bottom: 5px;
   }
 
   footer {
