@@ -4,6 +4,18 @@
   export let level = 0;
   export let changeRate = 0;
   export let estimatedEffect = 0;
+
+  let prevLevel;
+  let currentChange = 0;
+  let changeTimeout;
+  $: {
+    currentChange = level - prevLevel;
+    if (changeTimeout) clearTimeout(changeTimeout);
+    changeTimeout = setTimeout(() => {
+      currentChange = 0;
+    }, 500);
+    prevLevel = level;
+  }
 </script>
 
 <svg
@@ -108,6 +120,8 @@
   />
   <rect
     class="level"
+    class:increased={currentChange > 0}
+    class:decreased={currentChange < 0}
     x="0"
     y={(1 - level / 100) * 50}
     width="100%"
@@ -143,6 +157,12 @@
     transition: r 3s;
   }
   .status-icon .level {
-    transition: y 0.7s;
+    transition: y 0.7s, fill 1s;
+  }
+  .status-icon .level.increased {
+    fill: green;
+  }
+  .status-icon .level.decreased {
+    fill: red;
   }
 </style>
