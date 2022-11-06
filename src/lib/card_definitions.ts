@@ -410,7 +410,9 @@ export const cardDefinitions: Record<string, CardDefinition> = {
         },
         permanent_effects: {
             left_swipe: {},
-            right_swipe: {}
+            right_swipe: {
+                climate: 0.5
+            }
         }
     },
 }
