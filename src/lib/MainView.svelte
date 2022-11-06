@@ -23,6 +23,26 @@
   let cardBlacklist = ["inauguration"];
   $: currentYear = 2000;
 
+  const demoCardList = [
+    "advisors",
+    "lon_ask_1",
+    "press_day",
+    "crypto",
+    "meta",
+    "cars",
+    "wm",
+    "farmers",
+    "shady",
+    "lobbyists",
+    "ceo",
+    "taxes",
+    "free_press",
+    "flooding",
+    "scientists_success",
+    "coal",
+    "scientists_fail",
+  ];
+
   function handlePermanentEffects() {
     prosperityLevel.update((level) => level + $prosperityChangeRate);
     technologyLevel.update((level) => level + $technologyChangeRate);
@@ -60,6 +80,12 @@
   }
 
   function chooseRandomCard() {
+    if (window.location.hash === "#demo" && demoCardList.length > 0) {
+      // demo mode
+      console.log("Demo choice");
+      return demoCardList.shift();
+    }
+
     var keys = Object.keys(cardDefinitions);
 
     let cardProposal = keys[Math.floor(keys.length * Math.random())];
