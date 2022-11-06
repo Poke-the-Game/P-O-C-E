@@ -20,7 +20,7 @@
 
 <svg
   class="status-icon"
-  viewBox="0 -20 50 90"
+  viewBox="0 -35 50 120"
   xmlns="http://www.w3.org/2000/svg"
 >
   <title>{type}</title>
@@ -133,8 +133,8 @@
     <circle
       class="effect-indicator"
       cx="50%"
-      cy="-15"
-      r={2 + Math.abs(estimatedEffect) / 3.0}
+      cy="-20"
+      r={Math.min(2 + Math.abs(estimatedEffect) / 2.0, 10)}
       fill="var(--status-bg)"
       stroke="none"
     />
