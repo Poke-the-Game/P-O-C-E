@@ -27,7 +27,7 @@ interface CardDefinition {
 
 export const cardDefinitions: Record<string, CardDefinition> = {
     inauguration: {
-        name: "Secretary-General of the United Nations",
+        name: "Secretary-General of the UN",
         text: "The world is at a turning point. After an elaborate selection process, we have chosen you as our advisor. Lead the way!",
         image_id: "steve",
         action_description: {
@@ -312,6 +312,47 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             right_swipe: {
                 freedom: 5,
                 prosperity: 5
+            }
+        },
+        permanent_effects: {
+            left_swipe: {},
+            right_swipe: {}
+        }
+    },
+    advisors: {
+        name: "Board of UN advisors",
+        text: "We suggest adjusting our voting rules to make allowing new technologies easier.",
+        image_id: "business",
+        action_description: {
+            left_swipe: "I'd rather not",
+            right_swipe: "Okay"
+        },
+        effects: {
+            left_swipe: {
+                freedom: -5
+            },
+            right_swipe: {
+                freedom: 5,
+                technology: 5
+            }
+        },
+        permanent_effects: {
+            left_swipe: {},
+            right_swipe: {}
+        }
+    },
+    lobbyists: {
+        name: "Friendly lobbyist",
+        text: "It would be in both of our interests for you to follow our suggested environment reforms.",
+        image_id: "business",
+        action_description: {
+            left_swipe: "Nope",
+            right_swipe: "Yes! Thanks for the watch."
+        },
+        effects: {
+            left_swipe: {},
+            right_swipe: {
+                climate: -15,
             }
         },
         permanent_effects: {
