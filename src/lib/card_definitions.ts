@@ -139,10 +139,13 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             right_swipe: "Amazing, you'll be famous!"
         },
         effects: {
-            left_swipe: {},
+            left_swipe: {
+                climate: 5
+            },
             right_swipe: {
                 prosperity: -5,
-                climate: -5
+                climate: -5,
+                technology: 5
             }
         },
         permanent_effects: {
@@ -159,7 +162,9 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             right_swipe: "Amazing, you'll be famous!"
         },
         effects: {
-            left_swipe: {},
+            left_swipe: {
+                technology: -5,
+            },
             right_swipe: {
                 prosperity: -15
             }
@@ -265,7 +270,9 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             right_swipe: "I'm going all in!"
         },
         effects: {
-            left_swipe: {},
+            left_swipe: {
+                technology: -10,
+            },
             right_swipe: {
                 prosperity: -20,
                 freedom: 5
@@ -350,9 +357,55 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             right_swipe: "Yes! Thanks for the watch."
         },
         effects: {
-            left_swipe: {},
+            left_swipe: {
+                freedom: 5,
+            },
             right_swipe: {
                 climate: -15,
+            }
+        },
+        permanent_effects: {
+            left_swipe: {},
+            right_swipe: {}
+        }
+    },
+    wm: {
+        name: "FIQA manager",
+        text: "Having the next world cup in this country will surely benefit your popularity.",
+        image_id: "business",
+        action_description: {
+            left_swipe: "I prefer chess",
+            right_swipe: "Ole ole ole!!"
+        },
+        effects: {
+            left_swipe: {
+                technology: -5,
+            },
+            right_swipe: {
+                prosperity: -10,
+            }
+        },
+        permanent_effects: {
+            left_swipe: {},
+            right_swipe: {}
+        }
+    },
+    salt: {
+        name: "Mark Saltmountain",
+        text: "The UN should consider moving their headquarters into the metaverse,",
+        image_id: "tech",
+        action_description: {
+            left_swipe: "We're already in Second Life",
+            right_swipe: "Beam me up"
+        },
+        effects: {
+            left_swipe: {
+                technology: -5,
+            },
+            right_swipe: {
+                technology: 5,
+                prosperity: -5,
+                climate: 10
             }
         },
         permanent_effects: {
