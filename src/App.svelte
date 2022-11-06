@@ -50,57 +50,64 @@
 </script>
 
 {#if state === "start"}
-  <div class="menu-title">POCE: Prosperity Over Climate Extinction</div>
+  <section class="start">
+    <h1>POCE</h1>
+    <h2>Prosperity Over Climate Extinction</h2>
 
-  <div class="menu-text">
-    A game about finding compromises for difficult decisions to avoid
-    extinction.
-
-    <button class="menu-button" type="button" on:click={startGame}>
-      Start game
-    </button>
-    <button
-      class="menu-button"
-      type="button"
+    <p>
+      A game about finding compromises for difficult decisions to avoid
+      extinction.
+    </p>
+    <button type="button" on:click={startGame}> Start game </button>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div
+      class="button"
+      role="button"
       on:click={() => {
         state = "info";
       }}
     >
       More information
-    </button>
-  </div>
+    </div>
+  </section>
 {:else if state === "info"}
-  <div class="menu-text">
-    Human society is a complex system of interactions within itself and the
-    environment it exists in. Navigating it along the abyss of extinction is a
-    difficult task which requires making sensible compromises. In this simulated
-    universe, it is your task to guide humans through the dangerous times ahead.
-    Make sure to balance the four factors of enlightment (prosperity,
-    technology, freedom, and climate) and keep them at 50%. Pay attention! Once
-    they reach 0% or 100% humanity is doomed and we are all lost. This is no
-    easy task as the seemingly best choice can have dire consequences. Good luck
-    friend, you will need it.
-
-    <button
-      class="menu-button"
-      type="button"
+  <section>
+    <p>
+      Human society is a complex system of interactions within itself and the
+      environment it exists in. Navigating it along the abyss of extinction is a
+      difficult task which requires making sensible compromises. In this
+      simulated universe, it is your task to guide humans through the dangerous
+      times ahead. Make sure to balance the four factors of enlightment
+      (prosperity, technology, freedom, and climate) and keep them at 50%. Pay
+      attention! Once they reach 0% or 100% humanity is doomed and we are all
+      lost. This is no easy task as the seemingly best choice can have dire
+      consequences. Good luck friend, you will need it.
+    </p>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div
+      class="button"
+      role="button"
       on:click={() => {
         state = "start";
       }}
     >
       Back
-    </button>
-  </div>
+    </div>
+  </section>
 {:else if state === "ongoing"}
   <StatusBar />
   <MainView on:gameEnd={endGame} />
 {:else if state === "death"}
-  <div class="menu-title">The world has collapsed</div>
+  <section>
+    <h1>Game over</h1>
+    <h2>The world has collapsed</h2>
 
-  <div class="menu-text">
-    {deathMessage}
-
-    <h3>You reached the year {finalYear}</h3>
+    <p>
+      {deathMessage}
+    </p>
+    <p class="score">
+      You reached the year {finalYear}.
+    </p>
 
     <p>
       <small>
@@ -111,31 +118,63 @@
         >!
       </small>
     </p>
-  </div>
+
+    <button on:click={() => location.reload()}>Retry</button>
+  </section>
 {/if}
 
 <style>
-  .menu-title {
-    background-color: #241404;
-    color: #f7f3c1;
-    padding: 20px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 125%;
-  }
-
-  .menu-text {
-    background-color: #241404;
-    color: #f7f3c1;
+  section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    background-color: #bda86a;
+    width: 100%;
     height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    color: #241404;
   }
-
-  .menu-button {
-    width: 50%;
+  h1 {
+    font-size: 20pt;
+    margin: 10px;
+  }
+  h2 {
+    font-size: 16pt;
+    margin: 10px;
+  }
+  p {
+    font-size: 12pt;
+    margin: 10px;
+  }
+  p.score {
+    font-size: 16pt;
+  }
+  button {
+    border: 0;
+    background-color: #241404;
+    color: #f7f3c1;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+  button:hover {
+    background-color: #8d4f11;
+  }
+  button:active {
+    background-color: #241404;
+  }
+  .button {
+    color: #241404;
+    font-size: 10pt;
+    text-decoration: underline;
+  }
+  .button:hover {
+    color: #8d4f11;
+  }
+  .button:active {
+    color: #241404;
   }
 </style>

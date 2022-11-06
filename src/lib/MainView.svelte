@@ -198,8 +198,8 @@
   }
 
   .text-view {
-    margin-top: 10px;
     flex-grow: 1;
+    padding: 10px;
   }
 
   .name-view {
