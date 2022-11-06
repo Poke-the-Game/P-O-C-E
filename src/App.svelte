@@ -118,6 +118,8 @@
         >!
       </small>
     </p>
+
+    <button on:click={() => location.reload()}>Retry</button>
   </section>
 {/if}
 
