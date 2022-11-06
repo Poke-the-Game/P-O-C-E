@@ -1,4 +1,4 @@
-type ImageId = "steve" | "elon" | "farmer" | "old" | "tech" | "business"
+type ImageId = "steve" | "elon" | "farmer" | "old" | "tech" | "business" | "mark"
 
 interface Effect {
     prosperity?: number
@@ -390,10 +390,10 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             right_swipe: {}
         }
     },
-    salt: {
+    meta: {
         name: "Mark Saltmountain",
         text: "The UN should consider moving their headquarters into the metaverse,",
-        image_id: "tech",
+        image_id: "mark",
         action_description: {
             left_swipe: "We're already in Second Life",
             right_swipe: "Beam me up"
