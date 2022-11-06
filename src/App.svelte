@@ -76,12 +76,12 @@
       Human society is a complex system of interactions within itself and the
       environment it exists in. Navigating it along the abyss of extinction is a
       difficult task which requires making sensible compromises. In this
-      simulated universe, it is your task to guide humans through the dangerous
-      times ahead. Make sure to balance the four factors of enlightment
-      (prosperity, technology, freedom, and climate) and keep them at 50%. Pay
-      attention! Once they reach 0% or 100% humanity is doomed and we are all
-      lost. This is no easy task as the seemingly best choice can have dire
-      consequences. Good luck friend, you will need it.
+      simulated universe, it is your task to guide humanity through the
+      dangerous times ahead. Make sure to balance the four factors of
+      enlightenment (prosperity, technology, freedom, and climate) and keep them
+      in balance. Pay attention! Once they reach 0% or 100% humanity is doomed
+      and we are all lost. This is no easy task as the seemingly best choice can
+      have dire consequences. Good luck friend, you will need it.
     </p>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
