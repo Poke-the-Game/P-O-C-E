@@ -1,4 +1,4 @@
-type ImageId = "steve" | "lon_ask" | "farmer" | "old" | "tech" | "business"
+type ImageId = "steve" | "elon" | "farmer" | "old" | "tech" | "business"
 
 interface Effect {
     prosperity?: number
@@ -77,18 +77,18 @@ export const cardDefinitions: Record<string, CardDefinition> = {
                 prosperity: -10
             },
             right_swipe: {
-                climate: -10
+                climate: 2
             }
         },
         permanent_effects: {
             left_swipe: {},
-            right_swipe: {}
+            right_swipe: { climate: 0.5 }
         }
     },
     lon_ask_1: {
-        name: "Lon Ask",
+        name: "Elon Ask",
         text: "Let's accelerate free speech with this new feathered app.",
-        image_id: "lon_ask",
+        image_id: "elon",
         action_description: {
             left_swipe: "No, we'll continue to use the fax machine!",
             right_swipe: "Sounds great!"
@@ -100,13 +100,13 @@ export const cardDefinitions: Record<string, CardDefinition> = {
             },
             right_swipe: {
                 technology: 10,
-                freedom: -10,
-                climate: -5
+                freedom: -2,
+                climate: 5
             }
         },
         permanent_effects: {
             left_swipe: {},
-            right_swipe: {}
+            right_swipe: { freedom: -0.5 }
         }
     },
     farmers: {
@@ -184,7 +184,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
         },
         effects: {
             "left_swipe": {
-                climate: -5
+                prosperity: -5
             },
             "right_swipe": {
                 climate: 5,
@@ -197,9 +197,9 @@ export const cardDefinitions: Record<string, CardDefinition> = {
         }
     },
     cars: {
-        name: "Lon Ask",
+        name: "Elon Ask",
         text: "You should invest in my electric car company. I'll change the world.",
-        image_id: "lon_ask",
+        image_id: "elon",
         action_description: {
             left_swipe: "Yeah right...",
             right_swipe: "Wow, I'm in!"
@@ -209,7 +209,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
                 freedom: 5
             },
             right_swipe: {
-                climate: 10,
+                climate: -1,
                 technology: 10
             }
         },
@@ -229,7 +229,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
         effects: {
             left_swipe: {
                 freedom: -10,
-                climate: -10
+                climate: 10
             },
             right_swipe: {
                 freedom: 10,
@@ -242,10 +242,10 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     },
     taxes: {
         name: "Economists",
-        text: "Our models predict a recession if you don't change the tax system.",
+        text: "Our models predict a recession if you don't adjust the tax system.",
         image_id: "business",
         action_description: {
-            left_swipe: "Yeah nah, don't think so",
+            left_swipe: "Nah, don't think so",
             right_swipe: "Ah yes, quite sensible"
         },
         effects: {
@@ -263,7 +263,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
     },
     crypto: {
         name: "Tech Bro",
-        text: "You definitely have to invest in this crypto coin I just found. Think of all the NFTs you can buy!",
+        text: "You definitely have to invest in this crypto coin I just invented. Think of all the NFTs you could buy!",
         image_id: "tech",
         action_description: {
             left_swipe: "Byeeee",
@@ -293,7 +293,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
         },
         effects: {
             left_swipe: {
-                prosperity: -5
+                technology: -5
             },
             right_swipe: {
                 freedom: 10
@@ -375,7 +375,7 @@ export const cardDefinitions: Record<string, CardDefinition> = {
         image_id: "business",
         action_description: {
             left_swipe: "I prefer chess",
-            right_swipe: "Ole ole ole!!"
+            right_swipe: "Ole ole ole!!!"
         },
         effects: {
             left_swipe: {
