@@ -28,7 +28,7 @@ interface CardDefinition {
 export const cardDefinitions: Record<string, CardDefinition> = {
     inauguration: {
         name: "Secretary-General of the United Nations",
-        text: "The world is at a turning point. After an elaborate selection process, we have chosen you as our most capable advisor. Lead the way!",
+        text: "The world is at a turning point. After an elaborate selection process, we have chosen you as our advisor. Lead the way!",
         image_id: "steve",
         action_description: {
             left_swipe: "Oh no...",

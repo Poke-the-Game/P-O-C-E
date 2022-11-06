@@ -180,7 +180,11 @@
     {cardDefinitions[currentCard].name}
   </div>
 </main>
-<footer>Year: {currentYear} - Leader of the World</footer>
+<footer>
+  <div>
+    <span class="year-label">{currentYear}</span> AD
+  </div>
+</footer>
 
 <style>
   main {
@@ -207,5 +211,12 @@
     background-color: #241404;
     color: #f7f3c1;
     padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .year-label {
+    font-size: 150%;
   }
 </style>
